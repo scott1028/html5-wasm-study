@@ -8,8 +8,8 @@ $ emcc -o custom.html custom.c -O3 -s WASM=1
 $ emcc custom02.cpp -o custom02.html -s EXPORTED_FUNCTIONS="['_int_sqrt']"
 $ emcc -o custom02.wasm custom02.cpp -O3 -s WASM=1 -s SIDE_MODULE=1
   (Recommend ... )
-$ emcc -o custom03.wasm custom03.cpp -O3 -s WASM=1 -s SIDE_MODULE=1  # instance.exports.__Z6mytesti,  __Z6??????i
-$ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1  # instance.exports._mytest, _?????
+$ emcc -o custom03.wasm custom03.cpp -O3 -s WASM=1 -s SIDE_MODULE=1  # Func Prefix Rule: instance.exports.__Z6mytesti,  __Z6??????i
+$ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1  # Func Prefix Rule: instance.exports._mytest, _?????
 ```
 
 ```
