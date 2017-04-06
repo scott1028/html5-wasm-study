@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script>
+    WebAssembly.compile(new Uint8Array(`
+      00 61  73 6d  01 00  00 00  00 0c  06 64  79 6c  69 6e 
+      6b 80  80 c0  02 00  01 90  80 80  80 00  03 60  01 7f 
+      01 7f  60 03  7f 7f  7f 01  7f 60  00 00  02 c1  80 80 
+      80 00  04 03  65 6e  76 0a  6d 65  6d 6f  72 79  42 61 
+      73 65  03 7f  00 03  65 6e  76 06  6d 65  6d 6f  72 79 
+      02 00  80 02  03 65  6e 76  05 74  61 62  6c 65  01 70 
+      00 00  03 65  6e 76  09 74  61 62  6c 65  42 61  73 65 
+      03 7f  00 03  85 80  80 80  00 04  00 01  02 02  06 8b 
+      80 80  80 00  02 7f  01 41  00 0b  7f 01  41 00  0b 07 
+      b9 80  80 80  00 04  08 5f  6d 65  74 68  6f 64  41 00 
+      01 07  5f 6d  79 74  65 73  74 00  00 12  5f 5f  70 6f 
+      73 74  5f 69  6e 73  74 61  6e 74  69 61  74 65  00 03 
+      0b 72  75 6e  50 6f  73 74  53 65  74 73  00 02  09 81 
+      80 80  80 00  00 0a  c1 80  80 80  00 04  8a 80  80 80 
+      00 00  20 00  20 00  6c 41  0a 6a  0b 8a  80 80  80 00 
+      00 20  01 20  00 6c  20 02  6a 0b  83 80  80 80  00 00 
+      01 0b  95 80  80 80  00 00  02 40  23 00  24 02  23 02 
+      41 80  80 c0  02 6a  24 03  10 02  0b 0b`.trim().split(/[\s\r\n]+/g).map(str => parseInt(str, 16)))).then(module => {
+        var imports = {};
+        imports.env = imports.env || {}
+        Object.assign(imports.env, {
+            memoryBase: 0,
+            tableBase: 0,
+            memory: new WebAssembly.Memory({ initial: 256, maximum: 256 }),
+            table: new WebAssembly.Table({ initial: 0, maximum: 0, element: 'anyfunc' })
+        })
+        const instance = new WebAssembly.Instance(module, imports);
+        console.log(instance.exports._mytest(2,2));
+    })
+    </script>
+</body>
+</html>
