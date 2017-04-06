@@ -1,5 +1,9 @@
 # WebAssembly(WAS)
 
+#### Requirements
+
+- Ref: https://github.com/kripken/emscripten
+
 #### Usage
 
 ```
