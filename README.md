@@ -8,7 +8,7 @@
 
 #### Usage
 
-- Please using `-O?` Flag ex: -O1, ... -O3.
+- Please using `-O?` Flag ex: -O1, ... -O3, or it will not work in browser.
 
 ```
 $ emcc add.c -s WASM=1 -o add.html  # (create a http-server to open it. note: $ gcc add.c -o add.out && ./add.out)
