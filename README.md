@@ -21,6 +21,7 @@ $ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Create .
 $ em++ -o custom03a.js custom03a.cpp -O3 -s SIDE_MODULE=1 -g  # To asm.js (default)
 $ emcc sample01.c && node ./a.out.js  # A NodeJS Sample(C Only)
 $ em++ sample02.cpp && node ./a.out.js  # A NodeJS Sample(C++)
+$ em++ sample02.cpp -o sample02.js -s WASM=1  # Create .wasm & .js for Your Browser to Link .js File
 ```
 
 ```
