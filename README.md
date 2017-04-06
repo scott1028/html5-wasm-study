@@ -19,6 +19,7 @@ $ em++ -o custom03a.wasm custom03a.cpp -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Usin
 $ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1  # Func Prefix Rule: instance.exports._mytest, _?????
 $ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Create .wast & .wasm.map file
 $ em++ -o custom03a.js custom03a.cpp -O3 -s SIDE_MODULE=1 -g  # To asm.js (default)
+$ emcc sample01.c && node ./a.out.js  # A NodeJS Sample
 ```
 
 ```
