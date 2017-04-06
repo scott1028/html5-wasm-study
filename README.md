@@ -4,6 +4,7 @@
 
 - Ref: https://github.com/kripken/emscripten
 - Ref: http://www.itkeyword.com/doc/9284712486033144x787/c-mangling-name-for-use-in-emscripten
+- Ref: https://zrz0f.com/2017/02/13/webassembly/ (Required)
 
 #### Usage
 
@@ -17,6 +18,7 @@ $ em++ -o custom03.wasm custom03.cpp -O3 -s WASM=1 -s SIDE_MODULE=1  # Func Pref
 $ em++ -o custom03a.wasm custom03a.cpp -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Using extern "C" to disable C++ Mangle Function name.
 $ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1  # Func Prefix Rule: instance.exports._mytest, _?????
 $ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Create .wast & .wasm.map file
+$ em++ -o custom03a.js custom03a.cpp -O3 -s SIDE_MODULE=1 -g  # To asm.js (default)
 ```
 
 ```
