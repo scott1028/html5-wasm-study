@@ -9,9 +9,11 @@
         loadWebAssembly('custom04.wasm').then(function(instance){
             const mytest = instance.exports._mytest;
 
-            console.log('2^2 =', mytest(2))
-            console.log('3^2 =', mytest(3))
-            console.log('(2 + 5)^2 =', mytest(2 + 5))
+            console.log('2^2 =', mytest(2));
+            console.log('3^2 =', mytest(3));
+            console.log('(2 + 5)^2 =', mytest(2 + 5));
+
+            console.log(instance.exports._methodA(2,2,3));
           });
     </script>
 </body>
