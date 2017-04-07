@@ -11,19 +11,19 @@
 - Please using `-O?` Flag ex: -O1, ... -O3, or it will not work in browser.
 
 ```
-$ emcc add.c -s WASM=1 -o add.html  # (create a http-server to open it. note: $ gcc add.c -o add.out && ./add.out)
+$ emcc add.c -s WASM=1 -o add.html -O  # (create a http-server to open it. note: $ gcc add.c -o add.out && ./add.out)
 $ emcc -o custom.html custom.c -O3 -s WASM=1
-$ emcc custom02.cpp -o custom02.html -s EXPORTED_FUNCTIONS="['_int_sqrt']"
+$ emcc custom02.cpp -o custom02.html -O -s EXPORTED_FUNCTIONS="['_int_sqrt']"
 $ emcc -o custom02.wasm custom02.cpp -O3 -s WASM=1 -s SIDE_MODULE=1
   (Recommend ... )
 $ em++ -o custom03.wasm custom03.cpp -O3 -s WASM=1 -s SIDE_MODULE=1  # Func Prefix Rule(due to func name mangling): instance.exports.__Z6mytesti,  __Z6??????i
-$ em++ -o custom03a.wasm custom03a.cpp -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Using extern "C" to disable C++ Mangle Function name.
+$ em++ -o custom03a.wasm custom03a.cpp -O -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Using extern "C" to disable C++ Mangle Function name.
 $ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1  # Func Prefix Rule: instance.exports._mytest, _?????
 $ emcc -o custom04.wasm custom04.c -O3 -s WASM=1 -s SIDE_MODULE=1 -g  # Create .wast & .wasm.map file
 $ em++ -o custom03a.js custom03a.cpp -O3 -s SIDE_MODULE=1 -g  # To asm.js (default)
-$ emcc sample01.c && node ./a.out.js  # A NodeJS Sample(C Only)
-$ em++ sample02.cpp && node ./a.out.js  # A NodeJS Sample(C++)
-$ em++ sample02.cpp -o sample02.js -s WASM=1  # Create .wasm & .js for Your Browser to Link .js File
+$ emcc sample01.c -O && node ./a.out.js  # A NodeJS Sample(C Only)
+$ em++ sample02.cpp -O && node ./a.out.js  # A NodeJS Sample(C++)
+$ em++ sample02.cpp -O -o sample02.js -s WASM=1  # Create .wasm & .js for Your Browser to Link .js File
 ```
 
 ```
